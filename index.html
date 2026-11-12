@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuaca & Galeri Premium</title>
+    <!-- Font Awesome untuk Ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="background-blobs"></div>
+
+<div class="container glass">
+    <header>
+        <h1><i class="fa-solid fa-cloud-sun-rain"></i> CuacaLive</h1>
+        <p>Pantau cuaca dan dokumentasikan momenmu.</p>
+    </header>
+
+    <!-- Bagian Kontrol -->
+    <div class="controls-group">
+        <button id="btnLocation" class="btn btn-primary">
+            <i class="fa-solid fa-location-dot"></i> Lokasi Saya
+        </button>
+        <button id="btnCity" class="btn btn-secondary">
+            <i class="fa-solid fa-magnifying-glass"></i> Cari Kota
+        </button>
+    </div>
+
+    <!-- Input Manual (Disembunyikan dulu) -->
+    <div id="searchArea" class="hidden">
+        <input type="text" id="cityInput" placeholder="Contoh: Jakarta, Bandung...">
+    </div>
+
+    <!-- Loading Indicator -->
+    <div id="loader" class="hidden">
+        <i class="fa-solid fa-spinner fa-spin"></i> Memuat Data...
+    </div>
+
+    <!-- Hasil Cuaca -->
+    <div id="weatherResult" class="card hidden">
+        <div class="weather-header">
+            <h2 id="locationName">-</h2>
+            <span class="badge" id="weatherBadge">Aktif</span>
+        </div>
+        
+        <div class="weather-main">
+            <div class="temp-container">
+                <span id="tempValue">--</span><span>°C</span>
+            </div>
+            <div class="weather-icon-large">
+                <i class="fa-solid fa-sun" id="weatherIconLarge"></i>
+            </div>
+        </div>
+
+        <p id="weatherDesc" class="description">-</p>
+        
+        <div class="details-grid">
+            <div class="detail-item">
+                <i class="fa-solid fa-wind"></i>
+                <div>
+                    <small>Angin</small>
+                    <span id="windSpeed">-</span> km/h
+                </div>
+            </div>
+            <div class="detail-item">
+                <i class="fa-solid fa-droplet"></i>
+                <div>
+                    <small>Lembap</small>
+                    <span id="humidity">-</span>%
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- Bagian Kamera & Album -->
+    <div class="gallery-section">
+        <h3><i class="fa-solid fa-camera-retro"></i> Prediksi Cuaca Langsung</h3>
+        
+        <div class="camera-controls">
+            <button id="btnCamera" class="btn btn-camera">
+                <i class="fa-solid fa-video"></i> Ambil Foto Langsung
+            </button>
+            <button id="btnAlbum" class="btn btn-gallery">
+                <i class="fa-solid fa-image"></i> Ambil Foto Tersimpan
+            </button>
+        </div>
+
+        <!-- Tempat Preview Gambar -->
+        <div id="previewContainer" class="card image-card hidden">
+            <img id="userImage" src="" alt="Preview Gambar">
+            <button id="btnRemoveImg" class="btn-remove"><i class="fa-solid fa-trash"></i></button>
+        </div>
+    </div>
+
+    <!-- Input File Tersembunyi -->
+    <input type="file" id="cameraInput" accept="image/*" capture="environment" class="hidden-input">
+    <input type="file" id="albumInput" accept="image/*" class="hidden-input">
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
